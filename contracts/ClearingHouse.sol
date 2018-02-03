@@ -1,8 +1,8 @@
-pragma solidity ^0.4.10;
+pragma solidity ^0.4.13;
 
 
 import 'zeppelin-solidity/contracts/math/SafeMath.sol';
-import 'zeppelin-solidity/contracts/tokens/ERC20.sol';
+import 'zeppelin-solidity/contracts/token/ERC20/ERC20.sol';
 
 
 /** @title Simple options clearing house for ERC20 tokens (including W-eth) */
@@ -10,7 +10,7 @@ contract ClearingHouse {
   using SafeMath for uint256;
 
   // Possible option contract statuses
-  struct Status {
+  enum Status {
     None,
     Active,
     Closed
@@ -68,7 +68,8 @@ contract ClearingHouse {
     require(token != address(0));
     require(recipient != address(0));
     require(amount > 0);
-    require(amount <= tokenBalances[msg.sender][token]);
+    tokenBalances[msg.sender][token] =
+      tokenBalances[msg.sender][token].sub(amount);
     token.transfer(recipient, amount);
   }
 
@@ -117,7 +118,7 @@ contract ClearingHouse {
                , buyerAssetQuantity
                , expiration
                , msg.value // option price
-               , nonce )
+               , nonce );
 
     // Verify that the named writer did sign this contract 
     require(writer == ecrecover(contractHash, v, r, s));
@@ -158,14 +159,14 @@ contract ClearingHouse {
    *  @param nonce used to distinguish contracts with the same description
    */
   function exercise(
-    writer,
-    writerAsset,
-    writerAssetQuantity,
-    buyerAsset,
-    buyerAssetQuantity,
-    expiration,
-    price,
-    nonce
+    address writer,
+    address writerAsset,
+    uint256 writerAssetQuantity,
+    address buyerAsset,
+    uint256 buyerAssetQuantity,
+    uint256 expiration,
+    uint256 price,
+    uint256 nonce
   )
     public
   {
@@ -179,9 +180,9 @@ contract ClearingHouse {
                , buyerAssetQuantity
                , expiration
                , price
-               , nonce )
+               , nonce );
    
-    require(contracts[contractHash] == Status.Active];
+    require(contracts[contractHash] == Status.Active);
     require(msg.sender == buyers[contractHash]);
     require(now <= expiration);
 
@@ -203,14 +204,14 @@ contract ClearingHouse {
 
   /** Refund contract deposits */
   function refund(
-    writer,
-    writerAsset,
-    writerAssetQuantity,
-    buyerAsset,
-    buyerAssetQuantity,
-    expiration,
-    price,
-    nonce
+    address writer,
+    address writerAsset,
+    uint256 writerAssetQuantity,
+    address buyerAsset,
+    uint256 buyerAssetQuantity,
+    uint256 expiration,
+    uint256 price,
+    uint256 nonce
   )
     public
   {
@@ -224,7 +225,7 @@ contract ClearingHouse {
                , buyerAssetQuantity
                , expiration
                , price
-               , nonce )
+               , nonce );
     
     // The option needs to be expired
     require(expiration < now);
