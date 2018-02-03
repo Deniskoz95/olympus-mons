@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GambolingPangolin/options-market.git"
+    "url": "git+https://github.com/GambolingPangolin/olympus-mons.git"
   },
   "keywords": [
     "ethereum",
@@ -63,7 +63,7 @@
     "web3": "^0.20.4"
   },
   "bugs": {
-    "url": "https://github.com/GambolingPangolin/options-market/issues"
+    "url": "https://github.com/GambolingPangolin/olympus-mons/issues"
   },
-  "homepage": "https://github.com/GambolingPangolin/options-market#readme"
+  "homepage": "https://github.com/GambolingPangolin/olympus-mons:#readme"
 }
