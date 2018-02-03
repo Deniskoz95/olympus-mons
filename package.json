@@ -1,0 +1,69 @@
+{
+  "name": "olympus-mons",
+  "version": "0.1.0",
+  "description": "A decentralized ERC-20 options marketplace",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GambolingPangolin/options-market.git"
+  },
+  "keywords": [
+    "ethereum",
+    "options",
+    "ERC-20",
+    "solidity",
+    "react",
+    "javascript",
+    "node"
+  ],
+  "author": "I.C. Shipman & T.A. McInerney",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-module-alias": "^1.6.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.1",
+    "file-loader": "^0.11.2",
+    "jest": "^22.1.4",
+    "style-loader": "^0.20.1",
+    "uglify-js": "^3.3.9",
+    "uglifyjs-webpack-plugin": "^1.1.6",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "fs-misc": "^2.0.0",
+    "http": "^0.0.0",
+    "moment": "^2.20.1",
+    "numeral": "^2.0.6",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-addons-css-transition-group": "^15.6.2",
+    "react-addons-transition-group": "^15.6.2",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-stockcharts": "^0.7.0-beta.19",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "scope-types": "^1.1.2",
+    "truffle-contract": "^3.0.2",
+    "web3": "^0.20.4"
+  },
+  "bugs": {
+    "url": "https://github.com/GambolingPangolin/options-market/issues"
+  },
+  "homepage": "https://github.com/GambolingPangolin/options-market#readme"
+}
