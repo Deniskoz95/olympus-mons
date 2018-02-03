@@ -60,3 +60,6 @@ typings/
 .DS_Store
 
 package-lock.json
+
+# Truffle build artifacts
+build
